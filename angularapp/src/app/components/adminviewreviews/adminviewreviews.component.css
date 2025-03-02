@@ -1,0 +1,151 @@
+.reviews-container {
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.reviews-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: black;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    width: 300px;
+}
+
+.sort-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort-dropdown select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.review-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.review-card p {
+    margin: 10px;
+    padding: 0;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.star-rating .fa {
+    font-size: 1.5rem;
+    color: gold;
+}
+
+.review-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: flex-end;
+}
+
+.review-actions button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.view-product {
+    background-color: blue;
+    color: #fff;
+}
+
+.view-product:hover {
+    background-color: darkblue;
+}
+
+.view-profile {
+    background-color: grey;
+    color: #fff;
+}
+
+.view-profile:hover {
+    background-color: darkgrey;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 600px;
+    width: 100%;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: green;
+}
+
+.product-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000;
+}

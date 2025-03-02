@@ -1,0 +1,12 @@
+<nav *ngIf="isLoggedIn">
+  <ng-container *ngIf="userRole === 'user'; else adminCheck">
+    <app-usernav></app-usernav>
+  </ng-container>
+  <ng-template #adminCheck>
+    <ng-container *ngIf="userRole === 'admin'">
+      <app-adminnav></app-adminnav>
+    </ng-container>
+  </ng-template>
+</nav>
+
+<router-outlet></router-outlet>

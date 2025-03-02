@@ -1,0 +1,57 @@
+<div class="reviews-container">
+    <h1>View Reviews</h1>
+    <hr>
+    <div class="controls">
+        <div class="search-bar">
+            <input type="text" placeholder="Search reviews..." [(ngModel)]="searchText" (input)="filterReviews()">
+        </div>
+        <div class="sort-dropdown">
+            <label for="sortDate">Sort by Date:</label>
+            <select id="sortDate" [(ngModel)]="sortOrder" (change)="sortReviews()">
+                <option value="ascending">Ascending</option>
+                <option value="descending">Descending</option>
+            </select>
+        </div>
+    </div>
+    <div class="review-cards">
+        <div *ngFor="let review of filteredReviews" class="review-card">
+            <p class="product-name"><strong>{{ review.product.productName }}</strong></p>
+            <div class="star-rating">&nbsp;
+                <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                    <i class="fas" [ngClass]="{ 'fa-star': i < review.rating, 'fa-star-o': i >= review.rating }"></i>
+                </span>
+            </div>
+            <p><strong>Date:</strong> {{ review.date | date }}</p>
+            <p><strong>Review:</strong> {{ review.reviewText }}</p>
+            <div class="review-actions">
+                <button class="view-product" (click)="viewProduct(review.product)">View Product</button>
+                <button class="view-profile" (click)="viewProfile(review.user)">View Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Product Modal -->
+    <div *ngIf="showProductModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" (click)="toggleProductModal()">×</button>
+            <h2>Product Details</h2>
+            <img [src]="selectedProduct.coverImage" alt="{{ selectedProduct.productName }}" class="product-image">
+            <p><strong>Name:</strong> {{ selectedProduct.productName }}</p>
+            <p><strong>Price:</strong> ₹{{ selectedProduct.price }}</p>
+            <p><strong>Category:</strong> {{ selectedProduct.category }}</p>
+            <p><strong>Brand:</strong> {{ selectedProduct.brand }}</p>
+            <p><strong>Description:</strong> {{ selectedProduct.description }}</p>
+        </div>
+    </div>
+
+    <!-- View Profile Modal -->
+    <div *ngIf="showProfileModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" (click)="toggleProfileModal()">×</button>
+            <h2>User Profile</h2>
+            <p><strong>Username:</strong> {{ selectedUser.username }}</p>
+            <p><strong>Mobile:</strong> {{ selectedUser.mobileNumber }}</p>
+            <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+        </div>
+    </div>
+</div>

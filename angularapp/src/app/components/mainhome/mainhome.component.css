@@ -1,0 +1,249 @@
+/* Import the chosen font */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar Styles */
+.admin-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f0f0; /* Light grey background */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 97%;
+}
+
+.navbar-left .brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: black;
+    font-family: 'Lobster', cursive; /* Apply the chosen font */
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.role-box {
+    padding: 10px 20px;
+    color: black;
+    border-radius: 6px;
+    margin-right: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.role-box:hover {
+    background-color: slategrey; /* Slightly darker grey on hover */
+}
+
+.navbar-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-menu li {
+    position: relative;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    padding: 15px 20px;
+    display: block;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+}
+
+.product::after, 
+.navbar-menu a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: black;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+}
+
+.product:hover::after, 
+.navbar-menu a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section Styles */
+.hero {
+    width: 100%;
+    height: auto;
+    position: relative;
+    text-align: center;
+    margin-top: 20px; /* Ensures space between the navbar and hero image */
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-top: 20px;
+    color: #333;
+}
+
+.hero-text {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Product Carousel Styles */
+.product-carousel {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    animation: scroll 20s linear infinite;
+}
+
+.carousel-item {
+    flex: 0 0 33.33%; /* Adjust the width of the cards */
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 2px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Animation keyframes for scrolling */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Footer Styles */
+footer {
+    background-color: #fff;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contact-section {
+    max-width: 1200px;
+}
+
+.contact-section h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-item a:hover {
+    color: grey;
+}
+
+.footer-bottom {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+#map {
+    height: 100px;
+    margin-top: 10px;
+}

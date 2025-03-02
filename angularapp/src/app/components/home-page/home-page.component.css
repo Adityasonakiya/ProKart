@@ -1,0 +1,154 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f7fa;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    padding: 15px 20px;
+    display: block;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navbar a:hover {
+    background-color: grey;
+    color: #fff;
+}
+
+.main-content {
+    margin: 20px;
+}
+
+.welcome-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #fff;
+    padding: 7px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer h2 {
+    margin-top: 0;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        margin: 10px 0;
+    }
+}
+
+.footer {
+    background-color: #fff;
+    padding: 15px 5px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contact-section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-section h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #007bff;
+}
+
+.contact-item a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-item a:hover {
+    color: grey;
+}
+
+.footer-bottom {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+    }
+}

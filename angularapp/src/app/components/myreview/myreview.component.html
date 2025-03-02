@@ -1,0 +1,48 @@
+<div class="reviews-container">
+    <h1>My Reviews</h1>
+    <hr>
+    <div class="review-cards">
+        <div *ngFor="let review of reviews" class="review-card">
+            <p class="product-name"><strong>{{ review.product.productName }}</strong></p>
+            <div class="star-rating">
+                &nbsp;
+                <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index">
+                    <i class="fas" [ngClass]="{ 'fa-star': i < review.rating, 'fa-star-o': i >= review.rating }"></i>
+                </span>
+            </div>
+            <p><strong>Date:</strong> {{ review.date | date }}</p>
+            <p><strong>Review:</strong> {{ review.reviewText }}</p>
+            <div class="review-actions">
+                <button class="view-product" (click)="viewProduct(review.product)">View Product</button>
+                <button class="delete-review" (click)="confirmDeleteReview(review)">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Product Modal -->
+    <div *ngIf="showProductModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" (click)="toggleProductModal()">×</button>
+            <h2>Product Details</h2>
+            <img [src]="selectedProduct.coverImage" alt="{{ selectedProduct.productName }}" class="product-image">
+            <p><strong>Name:</strong> {{ selectedProduct.productName }}</p>
+            <p><strong>Price:</strong> ₹{{ selectedProduct.price }}</p>
+            <p><strong>Category:</strong> {{ selectedProduct.category }}</p>
+            <p><strong>Brand:</strong> {{ selectedProduct.brand }}</p>
+            <p><strong>Description:</strong> {{ selectedProduct.description }}</p>
+        </div>
+    </div>
+
+    <!-- Delete Review Confirmation Modal -->
+    <div *ngIf="showDeleteModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" (click)="toggleDeleteModal()">×</button>
+            <h2>Delete Review</h2>
+            <p>Are you sure you want to delete this review?</p>
+            <div class="modal-actions">
+                <button class="confirm-button" (click)="deleteReview(selectedReview)">Yes</button>
+                <button class="cancel-button" (click)="toggleDeleteModal()">No</button>
+            </div>
+        </div>
+    </div>
+</div>

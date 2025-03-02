@@ -1,0 +1,25 @@
+<div class="login-container">
+    <div class="image-placeholder">
+        <img src="https://cdn.pixabay.com/photo/2017/08/10/01/23/shopping-2616824_1280.jpg" alt="Placeholder Image">
+    </div>
+    <div class="login-form">
+        <h1>Login</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <label for="email">Email:</label>
+            <div class="input-container">
+                <input type="email" id="email" formControlName="email" required>
+                <div *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched" class="error-message">Email is required</div>
+            </div>
+            
+            <label for="password">Password:</label>
+            <div class="input-container">
+                <input type="password" id="password" formControlName="password" required>
+                <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched" class="error-message">Password is required</div>
+            </div>
+            
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+        </form>
+        <p *ngIf="true">{{error}}</p>
+        <p class="signup-option">Don't have an account? <a routerLink="/signup">Sign up</a></p>
+    </div>
+</div>

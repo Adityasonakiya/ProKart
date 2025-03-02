@@ -1,0 +1,27 @@
+# Ignore Maven and Gradle files
+target/
+build/
+*.jar
+*.war
+ 
+# Ignore IDE files
+.idea/
+*.iml
+*.class
+*.log
+ 
+# Ignore environment files
+application.properties
+application.yml
+ 
+# Ignore local environment variables
+.env
+ 
+# Ignore test output
+test-output/
+*.class
+ 
+# Ignore other system files
+.DS_Store
+Thumbs.db
+ 

@@ -1,0 +1,35 @@
+<nav class="admin-navbar">
+    <div class="navbar-left">
+        <span class="brand">ProKart</span>
+    </div>
+    <div class="navbar-right">
+        <div class="role-box">
+            <i class="fas fa-user-shield"></i> Admin
+        </div>
+        <ul class="navbar-menu">
+            <li><a routerLink="/home-page">Home</a></li>
+            <li class="dropdown">
+                <div class="product">Products</div>
+                <div class="dropdown-content">
+                    <a routerLink="/product-create">Add Product</a>
+                    <a routerLink="/adminviewproduct">View Products</a>
+                </div>
+            </li>
+            <li><a routerLink="/orderplaced">Order Placed</a></li>
+            <li><a routerLink="/adminviewreviews">Review</a></li>
+            <li><a style="cursor: pointer;" (click)="showLogoutModal()">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div *ngIf="showLogoutModalFlag" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Logout</h2>
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-actions">
+                <button class="yes-button" (click)="logout()">Yes</button>
+                <button class="no-button" (click)="cancelLogout()">No</button>
+            </div>
+        </div>
+    </div>
+</nav>

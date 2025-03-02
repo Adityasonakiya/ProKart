@@ -1,0 +1,58 @@
+.review-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Open Sans', sans-serif;
+}
+
+.review-container h1 {
+    text-align: center;
+    color: green;
+    margin-bottom: 20px;
+}
+
+.review-container textarea {
+    width: 97%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    resize: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.star-rating {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.star {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.star.filled {
+    color: gold;
+}
+
+.submit-review {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: green;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.submit-review:hover {
+    background-color: darkgreen;
+}

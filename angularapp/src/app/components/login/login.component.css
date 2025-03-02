@@ -1,0 +1,160 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    display: flex;
+    height: 97vh;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.input-container{
+    width: 600px;
+}
+
+.image-placeholder {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5; /* Light grey background */
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-placeholder img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire container */
+}
+
+.login-form {
+    flex: 1;
+    padding: 40px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.login-form:hover {
+    transform: translateY(-5px);
+}
+
+.login-form h1 {
+    color: black;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+.login-form label {
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out;
+    flex: none; /* Ensure input fields have fixed width */
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: black;
+    outline: none;
+}
+
+.login-form button {
+    background-color: black;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form button:hover {
+    background-color: grey;
+    transform: translateY(-2px);
+}
+
+.signup-option {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    width: 100%;
+}
+
+.signup-option a {
+    color: black;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.signup-option a:hover {
+    color: grey;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+    flex: none; /* Ensure error messages do not affect input field width */
+}
+
+.login-form input.ng-invalid + .error-message {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .image-placeholder, .login-form {
+        flex: none;
+        width: 100%;
+    }
+
+    .image-placeholder img {
+        height: 200px; /* Adjust for smaller screens */
+    }
+
+    .signup-option {
+        text-align: left;
+        width: auto;
+    }
+}

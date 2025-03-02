@@ -1,0 +1,54 @@
+<div class="view-product-container">
+    <h1>Products</h1>
+    <hr>
+    <div class="search-bar">
+        <input type="text" placeholder="Search by name" [(ngModel)]="searchText" (input)="filterProducts()">
+    </div>
+    <div class="product-cards">
+        <div *ngFor="let product of filteredProducts" class="product-card">
+            <img [src]="product.coverImage" alt="{{ product.productName }}" class="product-image">
+            <div class="product-details">
+                <h2>{{ product.productName }}</h2>
+                <p>{{ product.description }}</p>
+                <p>Price: ₹{{ product.price }}</p>
+                <p style="color: green; font-weight: 700;">In Stock: {{ product.stockQuantity }}</p>
+                <p>Category: {{ product.category }}</p>
+                <p>Brand: {{ product.brand }}</p>
+                <div class="quantity-input">
+                    <label for="quantity-{{ product.productId }}">Quantity:</label>
+                    <div class="quantity-controls">
+                        <button (click)="decreaseQuantity(product.productId)"
+                            [disabled]="quantity[product.productId] === 0">-</button>
+                        <span>{{ quantity[product.productId] }}</span>
+                        <button (click)="increaseQuantity(product.productId)"
+                            [disabled]="quantity[product.productId] === product.stockQuantity">+</button>
+                    </div>
+                </div>
+                <div class="product-actions">
+                    <button (click)="addToCart(product, quantity[product.productId])" class="add-to-cart">Add to
+                        Cart</button>
+                    <button (click)="viewReviews(product)" class="view-reviews">View Reviews</button>
+                    <button [routerLink]="['/review', product.productId]" class="write-review">Write a Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- View Reviews Modal -->
+    <div *ngIf="showReviewsModal" class="modal">
+        <div class="modal-content"> <button class="close-button" (click)="toggleReviewsModal()">×</button>
+            <h2>Reviews for {{ selectedProduct.productName }}</h2>
+            <div *ngFor="let review of productReviews" class="review-item">
+                <p><strong>User:</strong> {{ review.user.username }}</p>
+                <p class="review-rating"> <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"> <i class="fas"
+                            [ngClass]="{ 'fa-star': i < review.rating, 'fa-star-o': i >= review.rating }"></i> </span>
+                </p>
+                <p><strong>Date:</strong> {{ review.date | date }}</p>
+                <p><strong>Review:</strong> {{ review.reviewText }}</p>
+                <hr>
+            </div>
+            <div *ngIf="productReviews.length===0">
+                No reviews found for this product.
+            </div>
+        </div>
+    </div>
+</div>

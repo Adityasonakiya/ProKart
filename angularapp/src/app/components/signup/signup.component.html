@@ -1,0 +1,64 @@
+<div class="signup-container">
+    <div class="image-placeholder">
+        <img src="https://cdn.pixabay.com/photo/2017/08/10/01/23/shopping-2616824_1280.jpg" alt="Placeholder Image">
+    </div>
+    <div class="signup-form">
+        <h1>Sign Up</h1>
+        <form [formGroup]="signupForm" (ngSubmit)="register()">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" formControlName="username" required>
+                <div *ngIf="signupForm.get('username').invalid && signupForm.get('username').touched" class="error-message">
+                    <div *ngIf="signupForm.get('username').errors?.required">Username is required</div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" formControlName="email" required>
+                <div *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched" class="error-message">
+                    <div *ngIf="signupForm.get('email').errors?.required">Email is required</div>
+                    <div *ngIf="signupForm.get('email').errors?.email">Invalid email format</div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="mobileNumber">Mobile Number:</label>
+                <input type="text" id="mobileNumber" formControlName="mobileNumber" required>
+                <div *ngIf="signupForm.get('mobileNumber').invalid && signupForm.get('mobileNumber').touched" class="error-message">
+                    <div *ngIf="signupForm.get('mobileNumber').errors?.required">Mobile number is required</div>
+                    <div *ngIf="signupForm.get('mobileNumber').errors?.pattern">Mobile number should be 10 digits</div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" formControlName="password" required>
+                <div *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched" class="error-message">
+                    <div *ngIf="signupForm.get('password').errors?.required">Password is required</div>
+                    <div *ngIf="signupForm.get('password').errors?.passwordComplexity">Password must contain an uppercase letter, a lowercase letter, a digit, and a special character</div>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" formControlName="confirmPassword" required>
+                <div *ngIf="signupForm.get('confirmPassword').invalid && signupForm.get('confirmPassword').touched" class="error-message">
+                    <div *ngIf="signupForm.get('confirmPassword').errors?.required">Confirm Password is required</div>
+                </div>
+                <div *ngIf="passwordMismatch" class="error-message">Passwords do not match</div>
+            </div>
+
+            <div class="input-group">
+                <label for="userRole">Role:</label>
+                <select id="userRole" formControlName="userRole">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </div>
+            
+            <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+        </form>
+        <p class="login-option">Already have an account? <a routerLink="/login">Log in</a></p>
+    </div>
+</div>

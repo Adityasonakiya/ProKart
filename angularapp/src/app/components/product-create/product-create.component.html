@@ -1,0 +1,43 @@
+<div class="add-product-container">
+    <button class="back-button" (click)="goBack()">Back</button>
+    <h1>{{ isEdit ? 'Edit Product' : 'Create New Product' }}</h1>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" formControlName="productName" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" formControlName="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" id="price" formControlName="price" required>
+        </div>
+        <div class="form-group">
+            <label for="stockQuantity">Stock Quantity:</label>
+            <input type="number" id="stockQuantity" formControlName="stockQuantity" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" formControlName="category" required>
+                <option value="Electronics">Electronics</option>
+                <option value="Home Appliances">Home Appliances</option>
+                <option value="Books">Books</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Toys">Toys</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Beauty">Beauty</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="brand">Brand:</label>
+            <input type="text" id="brand" formControlName="brand" required>
+        </div>
+        <div class="form-group">
+            <label for="coverImage">Cover Image:</label>
+            <input type="file" id="coverImage" (change)="uploadImage($event)">
+        </div>
+        <button type="submit" [disabled]="!productForm.valid">{{ isEdit ? 'Update Product' : 'Create Product' }}</button>
+    </form>
+</div>

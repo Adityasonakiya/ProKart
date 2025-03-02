@@ -1,0 +1,58 @@
+<nav class="user-navbar">
+    <div class="navbar-left">
+        <span class="brand">ProKart</span>
+    </div>
+    <div class="navbar-right">
+        <div class="role-box">
+            <i class="fas fa-user"></i> User
+        </div>
+        <ul class="navbar-menu">
+            <li><a routerLink="/home-page">Home</a></li>
+            <li class="dropdown">
+                <div class="product">Products</div>
+                <div class="dropdown-content">
+                    <a routerLink="/userviewproduct">View Products</a>
+                    <a routerLink="/myorder">My Orders</a>
+                </div>
+            </li>
+            <li><a routerLink="/myreview">Review</a></li>
+            <li>
+                <a style="cursor: pointer;" (click)="toggleCartModal()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-quantity" *ngIf="cartQuantity > 0">{{ cartQuantity }}</span>
+                </a>
+            </li>
+            <li><a style="cursor: pointer;" (click)="showLogoutModal()">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div *ngIf="showLogoutModalFlag" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Logout</h2>
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-actions">
+                <button class="yes-button" (click)="logout()">Yes</button>
+                <button class="no-button" (click)="cancelLogout()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div *ngIf="showCartModalFlag" class="modal cart-modal">
+        <div class="modal-content">
+            <button class="close-button" (click)="toggleCartModal()">×</button>
+            <h2>Your Cart</h2>
+            <div class="cart-items">
+                <div *ngFor="let item of cartItems" class="cart-item-card">
+                    <p class="item-name">{{ item.product.productName }}</p>
+                    <p class="item-quantity">Quantity: {{ item.quantity }}</p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button (click)="clearCart()" class="clear-cart">Clear Cart</button>
+                <button routerLink="/checkout" (click)="toggleCartModal()" class="checkout">Checkout</button>
+            </div>
+        </div>
+    </div>
+</nav>

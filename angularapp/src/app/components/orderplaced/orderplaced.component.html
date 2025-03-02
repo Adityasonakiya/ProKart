@@ -1,0 +1,65 @@
+<div class="orders-placed-container">
+    <h1>Orders Placed</h1>
+    <hr>
+    <div class="controls">
+        <div class="search-bar">
+            <input type="text" placeholder="Search orders..." [(ngModel)]="searchText" (input)="filterOrders()">
+        </div>
+        <div class="sort-dropdown">
+            <label for="sortDate">Sort by Date:</label>
+            <select id="sortDate" [(ngModel)]="sortOrder" (change)="sortOrders()">
+                <option value="ascending">Ascending</option>
+                <option value="descending">Descending</option>
+            </select>
+        </div>
+    </div>
+    <div class="order-cards">
+        <div *ngFor="let order of filteredOrders" class="order-card">
+            <p><strong>Order ID:</strong> {{ order.orderId }}</p>
+            <p><strong>Date:</strong> {{ order.orderDate | date }}</p>
+            <p><strong>Total Amount:</strong> ₹{{ order.totalAmount }}</p>
+            <p><strong>Order Status:</strong> {{ order.orderStatus }}</p>
+            <p><strong>Shipping Address:</strong> {{ order.shippingAddress }}</p>
+            <p><strong>Billing Address:</strong> {{ order.billingAddress }}</p>
+            <div class="order-status-update">
+                <label for="orderStatus-{{ order.orderId }}">Update Order Status:</label>
+                <select id="orderStatus-{{ order.orderId }}" [(ngModel)]="order.orderStatus" (change)="updateOrderStatus(order)">
+                    <option value="Pending">Pending</option>
+                    <option value="Order-Placed">Order Placed</option>
+                    <option value="Dispatched">Dispatched</option>
+                    <option value="outForDelivery">Out for Delivery</option>
+                    <option value="Delivered">Delivered</option>
+                </select>
+            </div>
+            <div class="order-actions">
+                <button class="view-items" (click)="viewItems(order)">View Items</button>
+                <button class="view-profile" (click)="viewProfile(order.user)">View Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Items Modal -->
+    <div *ngIf="showItemsModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" (click)="toggleItemsModal()">×</button>
+            <h2>Order Items</h2>
+            <div *ngFor="let item of selectedOrderItems" class="cart-item-card">
+                <img [src]="item.product.coverImage" alt="{{ item.product.productName }}" class="item-image">
+                <p class="item-name" style="color: black; font-weight: 700; font-size: 300;">{{ item.product.productName }} -</p>&nbsp;
+                <p class="item-quantity">Quantity: {{ item.quantity }} -</p>&nbsp;
+                <p class="item-price">Price: ₹{{ item.product.price }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Profile Modal -->
+    <div *ngIf="showProfileModal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" (click)="toggleProfileModal()">×</button>
+            <h2>User Profile</h2>
+            <p><strong>Username:</strong> {{ selectedUser.username }}</p>
+            <p><strong>Mobile:</strong> {{ selectedUser.mobileNumber }}</p>
+            <p><strong>Email:</strong> {{ selectedUser.email }}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="admin-products-container">
+    <h1>Products</h1>
+    <hr>
+    <div class="controls">
+        <div class="search-bar">
+            <input type="text" placeholder="Search by name" [(ngModel)]="searchText" (input)="filterProducts()">
+        </div>
+        <div class="filter-dropdown">
+            <select [(ngModel)]="selectedCategory" (change)="filterProducts()">
+                <option value="">All Categories</option>
+                <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="product-cards">
+        <div *ngFor="let product of filteredProducts" class="product-card">
+            <img [src]="product.coverImage" alt="{{ product.productName }}" class="product-image">
+            <div class="product-details">
+                <h2>{{ product.productName }}</h2>
+                <p>{{ product.description }}</p>
+                <p>Price: ₹{{ product.price }}</p>
+                <p>Stock: {{ product.stockQuantity }}</p>
+                <p>Category: {{ product.category }}</p>
+                <p>Brand: {{ product.brand }}</p>
+                <div class="product-actions">
+                    <button (click)="editProduct(product)">Edit</button>
+                    <button (click)="confirmDelete(product)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div *ngIf="showDeleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Delete</h2>
+            <p>Are you sure you want to delete {{ selectedProduct?.productName }}?</p>
+            <div class="modal-actions">
+                <button (click)="deleteProduct()">Yes</button>
+                <button (click)="cancelDelete()">No</button>
+            </div>
+        </div>
+    </div>
+</div>
