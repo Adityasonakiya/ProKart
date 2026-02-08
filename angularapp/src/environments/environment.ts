@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  BACKEND_URL: 'https://ide-dfcbfbfdedccdfeffaeefccdbcfdcfcc.premiumproject.examly.io/proxy/8080'
+  BACKEND_URL: 'http://localhost:8080'
 };
 
 /*

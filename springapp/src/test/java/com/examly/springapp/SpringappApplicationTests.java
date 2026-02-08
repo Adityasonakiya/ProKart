@@ -1,7 +1,7 @@
 package com.examly.springapp;
 
 import org.springframework.boot.test.context.SpringBootTest;
-
+import org.springframework.context.annotation.Import;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -25,6 +25,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import com.examly.springapp.config.TestSecurityConfig;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -35,6 +36,7 @@ import jakarta.persistence.OneToOne;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @SpringBootTest(classes = SpringappApplication.class)
 @AutoConfigureMockMvc
+@Import(TestSecurityConfig.class)
 class SpringappApplicationTests {
 	
 	 @Autowired
