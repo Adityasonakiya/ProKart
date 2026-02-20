@@ -2,9 +2,6 @@
 
 Role-based e-commerce web application built with Angular and Spring Boot.
 
-## GitHub Description
-ProKart is a full-stack e-commerce platform with JWT authentication, role-based access (admin/user), product management, cart and checkout, order tracking, and review workflows.
-
 ## Overview
 ProKart is a full-stack shopping platform with separate experiences for guests, users, and admins.
 
